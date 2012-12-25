@@ -13,9 +13,9 @@ class Word < ActiveRecord::Base
                           foreign_key: :source_word_id,
                           association_foreign_key: :used_by_word_id
   
-  have_many :definitions
-  have_many :glosses, as: :glossable
-  have_many :places
+  has_many :definitions
+  has_many :glosses, as: :glossable
+  has_many :places
 
   belongs_to :user
 end

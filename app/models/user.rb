@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name
-  have_many :words
-  have_many :definitions
-  have_many :votes
+  has_many :words
+  has_many :definitions
+  has_many :votes
 end

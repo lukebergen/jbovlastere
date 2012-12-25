@@ -4,4 +4,6 @@ class Gloss < ActiveRecord::Base
   belongs_to :glossable, polymorphic: true
   belongs_to :language
   belongs_to :tag
+
+  has_many :votes, as: :voteable
 end

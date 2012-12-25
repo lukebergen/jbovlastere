@@ -61,6 +61,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroady (1.1.0)
     rails (3.2.9)
       actionmailer (= 3.2.9)
       actionpack (= 3.2.9)
@@ -106,6 +107,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
+  railroady
   rails (= 3.2.9)
   sass-rails (~> 3.2.3)
   sqlite3

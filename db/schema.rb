@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225053935) do
+ActiveRecord::Schema.define(:version => 20121225062049) do
 
   create_table "definitions", :force => true do |t|
     t.text     "text"
@@ -60,8 +60,10 @@ ActiveRecord::Schema.define(:version => 20121225053935) do
   create_table "votes", :force => true do |t|
     t.integer  "vote"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.integer  "voteable_id"
+    t.string   "voteable_type", :default => "definition"
   end
 
   create_table "words", :force => true do |t|

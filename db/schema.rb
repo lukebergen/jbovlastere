@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225062049) do
+ActiveRecord::Schema.define(:version => 20121229202751) do
 
   create_table "definitions", :force => true do |t|
     t.text     "text"
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(:version => 20121225062049) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "rafsi", :force => true do |t|
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "word_id"
+  end
+
+  create_table "source_words_used_by_words", :id => false, :force => true do |t|
+    t.integer "source_word_id",  :null => false
+    t.integer "used_by_word_id", :null => false
+  end
+
+  add_index "source_words_used_by_words", ["source_word_id", "used_by_word_id"], :name => "word_ids"
+
   create_table "tags", :force => true do |t|
     t.text     "text"
     t.datetime "created_at", :null => false
@@ -71,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20121225062049) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "notes"
   end
 
 end

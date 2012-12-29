@@ -16,6 +16,7 @@ class Word < ActiveRecord::Base
   has_many :definitions
   has_many :glosses, as: :glossable
   has_many :places
+  has_many :rafsi
 
   belongs_to :user
 end

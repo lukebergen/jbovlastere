@@ -1,5 +1,5 @@
 class Word < ActiveRecord::Base
-  attr_accessible :text
+  attr_accessible :text, :valsi_type
 
   has_and_belongs_to_many :source_words, 
                           class_name: "Word",

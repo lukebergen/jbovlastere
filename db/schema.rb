@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121229202751) do
+ActiveRecord::Schema.define(:version => 20130112192239) do
 
   create_table "definitions", :force => true do |t|
     t.text     "text"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20121229202751) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.text     "notes"
+    t.text     "valsi_type"
   end
 
 end

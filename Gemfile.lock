@@ -61,6 +61,8 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     minitest (4.6.1)
+    minitest-colorize (0.0.5)
+      minitest (>= 2.0)
     minitest-rails (0.5.2)
       minitest (~> 4.0)
       rails (>= 3.0)
@@ -121,6 +123,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   jquery-rails
+  minitest-colorize
   minitest-rails
   nokogiri
   railroady

@@ -22,6 +22,12 @@ end
 
 group :development, :test do
   gem 'railroady'
+
+  gem 'minitest-rails'
+  gem 'minitest-colorize'
+
+  # To use debugger
+  gem 'debugger'
 end
 
 gem 'jquery-rails'
@@ -38,8 +44,3 @@ gem 'nokogiri'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-gem 'debugger'
-
-gem 'minitest-rails'

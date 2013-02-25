@@ -3,6 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 
 require "minitest/autorun"
 require "minitest/rails"
+require "minitest-colorize"
 
 # Add `gem "minitest-rails-capybara"` to the test group of your Gemfile
 # and uncomment the following if you want Capybara feature tests
@@ -16,4 +17,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  before do
+    SeedDb.seed
+  end
 end

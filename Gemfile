@@ -25,6 +25,7 @@ group :development, :test do
 
   gem 'minitest-rails'
   gem 'minitest-colorize'
+  gem 'm'
 
   # To use debugger
   gem 'debugger'

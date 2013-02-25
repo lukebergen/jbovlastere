@@ -1,5 +1,5 @@
 class Gloss < ActiveRecord::Base
-  attr_accessible :text
+  attr_accessible :text, :tag, :language
 
   belongs_to :glossable, polymorphic: true
   belongs_to :language

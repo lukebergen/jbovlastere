@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224215837) do
+ActiveRecord::Schema.define(:version => 20130224235743) do
 
   create_table "definitions", :force => true do |t|
     t.text     "text"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20130224215837) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "position"
-    t.text     "type"
     t.string   "kind"
   end
 
@@ -53,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20130224215837) do
     t.datetime "updated_at", :null => false
     t.integer  "word_id"
   end
+
+  create_table "source_places_used_by_places", :id => false, :force => true do |t|
+    t.integer "source_place_id",  :null => false
+    t.integer "used_by_place_id", :null => false
+  end
+
+  add_index "source_places_used_by_places", ["source_place_id", "used_by_place_id"], :name => "place_ids"
 
   create_table "source_words_used_by_words", :id => false, :force => true do |t|
     t.integer "source_word_id",  :null => false

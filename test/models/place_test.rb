@@ -8,4 +8,5 @@ describe Place do
   it "must be valid" do
     @place.valid?.must_equal true
   end
+
 end

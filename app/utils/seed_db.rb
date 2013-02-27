@@ -76,6 +76,64 @@ class SeedDb
       })
 
 
+      # dicra
+      dicra_places = Place.create(places(3))
+      dicra_places[0].update_attributes(kind: 'event')
+      dicra_places[1].update_attributes(kind: "object/event/process")
+
+      dicra_rafsi = Rafsi.create([{text: 'dir'}])
+      dicra = Word.create({
+        text: 'dicra',
+        valsi_type: 'gismu',
+        user: user,
+        places: dicra_places,
+        rafsi: dicra_rafsi
+      })
+
+      # gloss
+      dicra.glosses << Gloss.create(text: 'interrupt', language: lang)
+      dicra.save!
+
+      # place glosses
+
+      # definition
+      dicra_definition = Definition.create({
+        text: "{1} interrupts/stops/halts/[disrupts] {2} due to quality {3}",
+        user: user,
+        language: lang,
+        word: dicra
+      })
+
+
+      # djidirsku
+      # made up word for testing lujvo made of multiple 'd' words
+      djidirsku_places = Place.create(places(3))
+      djidirsku_places[0].update_attributes(kind: 'agent', source_places: [djica_places[0], dicra_places[0]])
+      djidirsku_places[1].update_attributes(kind: 'agent', source_places: [cusku_places[0]])
+      djidirsku_places[2].update_attributes(kind: "sedu'u/text/lu'e", source_places: [cusku_places[1]])
+
+      djidirsku = Word.create({
+        text: 'djidirsku',
+        valsi_type: 'lujvo',
+        user: user,
+        places: djidirsku_places,
+        source_words: [djica, dicra, cusku]
+      })
+
+      # place glosses
+      djidirsku.places[0].glosses << Gloss.create(text: 'interupter', language: lang)
+      djidirsku.places[1].glosses << Gloss.create(text: 'expresser', language: lang)
+      djidirsku.places[2].glosses << Gloss.create(text: 'expression', language: lang)
+
+      # definition
+      djidirsku_definition = Definition.create({
+        text: "{1} wants to interupt {2} from expressing {3}",
+        user: user,
+        language: lang,
+        word: djidirsku
+      })
+
+
       # djisku
       djisku_places = Place.create(places(5))
       djisku_places[0].update_attributes(kind: 'agent', source_places: [djica_places[0], cusku_places[0]])
@@ -86,9 +144,10 @@ class SeedDb
 
       djisku = Word.create({
         text: 'djisku',
-        valsi_type: 'gismu',
+        valsi_type: 'lujvo',
         user: user,
-        places: djisku_places
+        places: djisku_places,
+        source_words: [djica, cusku]
       })
 
       # gloss

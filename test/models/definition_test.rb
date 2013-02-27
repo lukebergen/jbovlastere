@@ -26,5 +26,11 @@ describe Definition do
       desired_result = {"abcd" => "a", "bcde" => "b", "cdef" => "c"}
       @definition.send(:words_to_prefixes, words).must_equal(desired_result)
     end
+
+    it 'builds a map with multiple letters' do
+      words = ['djica', 'dirca', 'cusku']
+      desired_result = {'djica' => 'dj', 'dirca' => 'di', 'cusku' => 'c'}
+      @definition.send(:words_to_prefixes, words).must_equal(desired_result)
+    end
   end
 end

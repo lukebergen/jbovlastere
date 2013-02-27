@@ -18,21 +18,16 @@ class Definition < ActiveRecord::Base
 
   private
     def place_strings
-      # for djidirsku this should be
-      # [x1=di1 wants to interupt x2=dj1 from expressing x3=c1
-      word = self.word
-      source_words = word.source_words.map(&:text)
+      source_words = self.word.source_words.map(&:text).uniq
       prefixes = words_to_prefixes(source_words)
-      places = []
-      word.places.each do |place|
+      self.word.places.map do |place|
         place_str = place.source_places.map do |source_place|
           "#{prefixes[source_place.word.text]}#{(source_place.position + 1)}"
         end
         result = (["x#{place.position + 1}"] + place_str).join('=')
         result << " (#{place.kind})" unless place.kind.blank?
-        places << result
+        result
       end
-      places
     end
 
     def words_to_prefixes(source_words)

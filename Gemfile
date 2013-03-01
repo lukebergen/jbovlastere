@@ -40,6 +40,8 @@ gem 'nokogiri'
 # To use Jbuilder templates for JSON
 gem 'jbuilder'
 
+gem 'inherited_resources'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -6,6 +6,8 @@ class SeedDb
       pu_tag = Tag.create(text: 'pu')
       nu_tag = Tag.create(text: 'nu')
 
+      key = ApiKey.create(token: '1234567890', name: 'jbovlaste admin')
+
       def places(n)
         (0..n - 1).each_with_object([]) {|pos, arr| arr << {position: pos}}
       end

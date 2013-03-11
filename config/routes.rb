@@ -25,6 +25,8 @@ Jbovlastere::Application.routes.draw do
   #     end
   #   end
 
+  resources :words
+
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
